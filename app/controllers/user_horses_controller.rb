@@ -1,0 +1,2 @@
+class UserHorsesController < ApplicationController
+end

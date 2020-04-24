@@ -1,0 +1,2 @@
+class GameHorsesController < ApplicationController
+end
