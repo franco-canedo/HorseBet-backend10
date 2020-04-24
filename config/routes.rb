@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :wins
+  resources :game_winners
   resources :user_horses
   resources :game_users
   resources :game_horses

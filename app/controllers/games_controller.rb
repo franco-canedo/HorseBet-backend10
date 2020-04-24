@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
     def index
         games = Game.all 
-        render json: games.to_json(:include => [:users, :horses])
+        render json: games.to_json(:include => [:users, :horses, {:game_winners => {:include => :user}}])
     end 
 
     def show 

@@ -5,9 +5,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :password_digest
       t.string :bio
       t.string :avatar
-      t.integer :winnings
-      t.integer :deposit
-      t.integer :number_wins
+      t.integer :winnings, :default => 0
+      t.integer :deposit, :default => 0
+      t.integer :number_wins, :default => 0
 
       t.timestamps
     end
