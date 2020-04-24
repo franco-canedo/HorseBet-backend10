@@ -1,9 +1,9 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    skip_before_action :authorized, only: [:create, :index, :show]
 
   def index
     user = User.all 
-    render json: user
+    render json: user.to_json(:include => [:games])
   end 
 
   def show 
