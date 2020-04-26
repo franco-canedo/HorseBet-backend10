@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :boos
   resources :wins
   resources :game_winners
   resources :user_horses
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
 
   get '/users', to: 'users#index'
 
-  
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
   
 end

@@ -10,4 +10,21 @@ class GamesController < ApplicationController
         game = Game.find(params[:id])
         render json: game
     end 
+
+    def create 
+        game = Game.new(game_params)
+        if game.save
+            serialized_data = ActiveModelSerializers::Adapter::Json.new(
+              ConversationSerializer.new(game)
+            ).serializable_hash
+            ActionCable.server.broadcast 'games_channel', serialized_data
+            head :ok
+          end
+    end 
+
+    private
+  
+    def game_params
+        params.require(:game).permit(:minimum_bet, :jackpot)
+    end
 end

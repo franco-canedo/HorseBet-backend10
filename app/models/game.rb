@@ -4,4 +4,5 @@ class Game < ApplicationRecord
     has_many :game_horses
     has_many :horses, through: :game_horses
     has_many :game_winners
+    has_many :boos
 end
