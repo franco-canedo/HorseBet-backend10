@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-    skip_before_action :authorized, only: [:create, :index, :show, :active]
+    skip_before_action :authorized, only: [:create, :index, :show, :active, :joinable]
 
     def index
         games = Game.all 
@@ -23,7 +23,12 @@ class GamesController < ApplicationController
     end 
 
     def active 
-        games = Game.find_by(active: true)
+        games = Game.where(active: true)
+        render json: games.to_json(:include => [:users, :horses, {:game_winners => {:include => :user}}])
+    end 
+
+    def joinable
+        games = Game.where(joinable: true)
         render json: games.to_json(:include => [:users, :horses, {:game_winners => {:include => :user}}])
     end 
 

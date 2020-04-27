@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   get '/users', to: 'users#index'
   get '/activeGames', to: 'games#active'
+  get '/joinableGames', to: 'games#joinable'
   post '/boo', to: 'boos#create'
+  post '/newGame', to: 'games#create'
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'

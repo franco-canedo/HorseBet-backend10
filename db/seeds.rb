@@ -39,9 +39,11 @@ GameWinner.create(user_id: jack.id, game_id: g1.id, moneyWon: 2)
 
 
 
-g2 = Game.create(jackpot: 20, minimum_bet: 5, active: false)
+g2 = Game.create(jackpot: 20, minimum_bet: 5, active: false, joinable: false)
 GameUser.create(game_id: g2.id, user_id: dane.id)
 GameUser.create(game_id: g2.id, user_id: jack.id)
+
+g3 = Game.create(jackpot: 20, minimum_bet: 5)
 
 
 

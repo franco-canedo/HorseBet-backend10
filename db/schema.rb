@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_04_26_141357) do
     t.integer "minimum_bet"
     t.string "winner"
     t.boolean "active", default: true
+    t.boolean "joinable", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
