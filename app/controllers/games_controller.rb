@@ -8,13 +8,21 @@ class GamesController < ApplicationController
 
     def show 
         game = Game.find(params[:id])
-        render json: game
+        render json: game.to_json(:include => [:users, :game_users, :horses, {:game_winners => {:include => :user}}])
     end 
 
     def create 
         game = Game.new(game_params)
-
+        
         if game.save
+            h1 = Horse.create(speed: 10)
+            GameHorse.create(game_id: game.id, horse_id: h1.id)
+            h2 = Horse.create(speed: 10)
+            GameHorse.create(game_id: game.id, horse_id: h2.id)
+            h3 = Horse.create(speed: 10)
+            GameHorse.create(game_id: game.id, horse_id: h3.id)
+            h4 = Horse.create(speed: 10)
+            GameHorse.create(game_id: game.id, horse_id: h4.id)
             serialized_data = ActiveModelSerializers::Adapter::Json.new(
               GameSerializer.new(game)
             ).serializable_hash
