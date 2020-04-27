@@ -13,13 +13,14 @@ class GamesController < ApplicationController
 
     def create 
         game = Game.new(game_params)
+
         if game.save
             serialized_data = ActiveModelSerializers::Adapter::Json.new(
               GameSerializer.new(game)
             ).serializable_hash
             ActionCable.server.broadcast 'games_channel', serialized_data
             head :ok
-          end
+        end
     end 
 
     def active 
@@ -31,6 +32,7 @@ class GamesController < ApplicationController
         games = Game.where(joinable: true)
         render json: games.to_json(:include => [:users, :horses, {:game_winners => {:include => :user}}])
     end 
+
 
 
     private
