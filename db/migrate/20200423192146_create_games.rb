@@ -4,6 +4,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.integer :jackpot
       t.integer :minimum_bet
       t.string :winner
+      t.boolean :active, :default => true
 
       t.timestamps
     end

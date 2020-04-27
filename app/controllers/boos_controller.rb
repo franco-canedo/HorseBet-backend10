@@ -1,12 +1,13 @@
 class BoosController < ApplicationController
+    skip_before_action :authorized, only: [:create]
     def create
-        boo = Message.new(boo_params)
+        boo = Boo.new(boo_params)
         game= Game.find(boo_params[:game_id])
         if boo.save
           serialized_data = ActiveModelSerializers::Adapter::Json.new(
-            MessageSerializer.new(boo)
+            BooSerializer.new(boo)
           ).serializable_hash
-          MessagesChannel.broadcast_to game, serialized_data
+          BoosChannel.broadcast_to game, serialized_data
           head :ok
         end
       end
@@ -14,6 +15,6 @@ class BoosController < ApplicationController
       private
       
       def boo_params
-        params.require(:boo).permit(:text, :game_id, :horse_id)
+        params.require(:boo).permit(:game_id, :horse_id)
       end
 end

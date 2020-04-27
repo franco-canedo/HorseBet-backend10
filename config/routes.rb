@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   end
 
   get '/users', to: 'users#index'
+  get '/activeGames', to: 'games#active'
+  post '/boo', to: 'boos#create'
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
