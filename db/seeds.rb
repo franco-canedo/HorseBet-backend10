@@ -17,9 +17,9 @@ jason = User.create(username: "Jason", password: "jason1")
 jack = User.create(username: "Jack", password: "jack1", winnings: 15, deposit: 60)
 
 g1 = Game.create(jackpot: 4, minimum_bet: 1)
-GameUser.create(game_id: g1.id, user_id: dane.id, extra_bet: 1)
-GameUser.create(game_id: g1.id, user_id: jason.id, extra_bet: 1)
-GameUser.create(game_id: g1.id, user_id: jack.id, extra_bet: 1)
+GameUser.create(game_id: g1.id, user_id: dane.id, extra_bet: 1, total_bet: 1)
+GameUser.create(game_id: g1.id, user_id: jason.id, extra_bet: 1, total_bet: 1)
+GameUser.create(game_id: g1.id, user_id: jack.id, extra_bet: 1, total_bet: 1)
 h1 = Horse.create(name: "horse1", speed: 50)
 h2 = Horse.create(name: "horse2", speed: 51)
 h3 = Horse.create(name: "horse3", speed: 53)
@@ -39,9 +39,11 @@ GameWinner.create(user_id: jack.id, game_id: g1.id, moneyWon: 2)
 
 
 
-g2 = Game.create(jackpot: 20, minimum_bet: 5)
+g2 = Game.create(jackpot: 20, minimum_bet: 5, active: false, joinable: false)
 GameUser.create(game_id: g2.id, user_id: dane.id)
 GameUser.create(game_id: g2.id, user_id: jack.id)
+
+g3 = Game.create(jackpot: 20, minimum_bet: 5)
 
 
 

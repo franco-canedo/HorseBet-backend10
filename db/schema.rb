@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_185706) do
+ActiveRecord::Schema.define(version: 2020_04_26_141357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boos", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "horse_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "game_horses", force: :cascade do |t|
     t.integer "game_id"
@@ -26,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_185706) do
     t.integer "game_id"
     t.integer "user_id"
     t.integer "extra_bet"
+    t.integer "total_bet"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -42,6 +50,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_185706) do
     t.integer "jackpot"
     t.integer "minimum_bet"
     t.string "winner"
+    t.boolean "active", default: true
+    t.boolean "joinable", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
