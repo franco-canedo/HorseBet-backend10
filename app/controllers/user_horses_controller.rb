@@ -8,6 +8,7 @@ class UserHorsesController < ApplicationController
         game.save
         if game.bets_placed === game.users.length
             game.active = true
+            game.joinable = false
             # byebug
             game.save
         end 
