@@ -8,6 +8,6 @@ class GameUsersController < ApplicationController
     private
 
     def game_user_params
-        params.require(:game_user).permit(:user_id, :game_id)
+        params.require(:game_user).permit(:user_id, :game_id, :total_bet, :extra_bet)
     end 
 end
