@@ -8,7 +8,7 @@ class GamesController < ApplicationController
 
     def show 
         game = Game.find(params[:id])
-        render json: game.to_json(:include => [:users, :game_users, :horses, {:game_winners => {:include => :user}}])
+        render json: game.to_json(:include => [:users, :game_users, {:horses => {:include => :users}}, {:game_winners => {:include => :user}}])
     end 
 
     def create 
