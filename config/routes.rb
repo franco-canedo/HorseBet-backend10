@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   post '/newGame', to: 'games#create'
   post '/joinGame', to: 'game_users#join'
   post '/userHorse', to: 'user_horses#create'
+  
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'

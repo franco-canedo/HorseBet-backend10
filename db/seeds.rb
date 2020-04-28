@@ -40,11 +40,11 @@ GameHorse.create(game_id: g1.id, horse_id: h4.id)
 
 
 
-g2 = Game.create(jackpot: 20, minimum_bet: 5, active: false, joinable: false)
-GameUser.create(game_id: g2.id, user_id: dane.id)
-GameUser.create(game_id: g2.id, user_id: jack.id)
+# g2 = Game.create(jackpot: 20, minimum_bet: 5, active: false, joinable: false)
+# GameUser.create(game_id: g2.id, user_id: dane.id)
+# GameUser.create(game_id: g2.id, user_id: jack.id)
 
-g3 = Game.create(jackpot: 20, minimum_bet: 5)
+# g3 = Game.create(jackpot: 20, minimum_bet: 5)
 
 
 

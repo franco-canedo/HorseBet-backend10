@@ -31,6 +31,7 @@ class GamesController < ApplicationController
         end
     end 
 
+
     def active 
         games = Game.where(active: true)
         render json: games.to_json(:include => [:users, :horses, {:game_winners => {:include => :user}}])
