@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hypes
   resources :boos
   resources :wins
   resources :game_winners
@@ -24,7 +25,10 @@ Rails.application.routes.draw do
   get '/joinableGames', to: 'games#joinable'
   post '/boo', to: 'boos#create'
   post '/newGame', to: 'games#create'
-  post '/joinGame', to: 'game_user#join'
+  post '/joinGame', to: 'game_users#join'
+  post '/userHorse', to: 'user_horses#create'
+  post '/hype', to: 'hypes#create'
+  
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
