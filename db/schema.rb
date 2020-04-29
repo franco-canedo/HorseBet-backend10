@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_221228) do
   create_table "boos", force: :cascade do |t|
     t.integer "game_id"
     t.integer "horse_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_221228) do
   create_table "hypes", force: :cascade do |t|
     t.integer "game_id"
     t.integer "horse_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -74,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_04_28_221228) do
   create_table "user_horses", force: :cascade do |t|
     t.integer "user_id"
     t.integer "horse_id"
+    t.integer "game_id"
+    t.boolean "active", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
