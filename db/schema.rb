@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2020_04_28_221228) do
   create_table "game_users", force: :cascade do |t|
     t.integer "game_id"
     t.integer "user_id"
-    t.integer "extra_bet"
-    t.integer "total_bet"
+    t.float "extra_bet"
+    t.float "total_bet"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_221228) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.integer "jackpot"
+    t.float "jackpot"
     t.integer "minimum_bet"
     t.string "winner"
     t.integer "bets_placed", default: 0
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_221228) do
     t.string "bio"
     t.string "avatar"
     t.integer "winnings", default: 0
-    t.integer "deposit", default: 0
+    t.float "deposit", default: 0.0
     t.integer "number_wins", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :bio
       t.string :avatar
       t.integer :winnings, :default => 0
-      t.integer :deposit, :default => 0
+      t.float :deposit, :default => 0
       t.integer :number_wins, :default => 0
 
       t.timestamps
