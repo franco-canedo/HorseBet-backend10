@@ -3,8 +3,8 @@ class CreateGameUsers < ActiveRecord::Migration[6.0]
     create_table :game_users do |t|
       t.integer :game_id
       t.integer :user_id
-      t.integer :extra_bet
-      t.integer :total_bet
+      t.float :extra_bet
+      t.float :total_bet
 
       t.timestamps
     end
