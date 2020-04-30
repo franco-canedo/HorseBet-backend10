@@ -3,8 +3,8 @@ class BoosController < ApplicationController
     def create
         boo = Boo.new(boo_params)
         game= Game.find(boo_params[:game_id])
-        # game_user = GameUser.find_by(game_id: boo_params[:game_id], user_id: boo_params[:user_id])
-        game_user = GameUser.last
+        game_user = GameUser.find_by(game_id: boo_params[:game_id], user_id: boo_params[:user_id])
+       
         # byebug
         if boo.save
           if game_user.extra_bet > 0

@@ -3,8 +3,8 @@ class HypesController < ApplicationController
     def create
         hype = Hype.new(hype_params)
         game= Game.find(hype_params[:game_id])
-        # game_user = GameUser.find_by(game_id: hype_params[:game_id], user_id: hype_params[:user_id])
-        game_user = GameUser.last
+        game_user = GameUser.find_by(game_id: hype_params[:game_id], user_id: hype_params[:user_id])
+     
         if hype.save
             if game_user.extra_bet > 0
                 game.jackpot = game.jackpot + 0.05
