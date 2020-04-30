@@ -6,7 +6,7 @@ class User < ApplicationRecord
     has_many :horses, through: :user_horses
     has_many :game_winners
 
-    validates :username, presence: true
-    validates :username, uniqueness: true
-    validates :password, presence: true, length: { minimum: 5 }
+    validates :username, presence: true, on: :create
+    validates :username, uniqueness: true, on: :create
+    validates :password, presence: true, length: { minimum: 5 }, on: :create
 end
