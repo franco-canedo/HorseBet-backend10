@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       get '/users', to: 'users#index'
+      post '/users/deposit', to: 'users#deposit'
+      post '/users/withdraw', to: 'users#withdraw'
     end
   end
 

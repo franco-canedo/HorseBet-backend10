@@ -5,6 +5,7 @@ class CreateGameUsers < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.float :extra_bet
       t.float :total_bet
+      t.boolean :bettable, :default => false
 
       t.timestamps
     end
