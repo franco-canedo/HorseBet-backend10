@@ -1,7 +1,16 @@
 class GameUsersController < ApplicationController
     skip_before_action :authorized, only: [:join]
     def join
-        game_user = GameUser.create(game_user_params)
+        game_user = GameUser.new(game_user_params)
+        game = Game.find_by(id: game_user_params[:game_id])
+        # byebug
+        if game_user.save
+            serialized_data = ActiveModelSerializers::Adapter::Json.new(
+              GameUserSerializer.new(game_user)
+            ).serializable_hash
+            ActionCable.server.broadcast 'game_users_channel', serialized_data
+            head :ok
+        end 
         
         # game = Game.find_by(id: params[:game_id])
         
@@ -22,7 +31,7 @@ class GameUsersController < ApplicationController
         #   GameUsersChannel.broadcast_to game, serialized_data
         #   head :ok
         # end 
-        render json: game_user
+        
     end 
 
     private
