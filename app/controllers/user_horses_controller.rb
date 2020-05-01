@@ -6,6 +6,7 @@ class UserHorsesController < ApplicationController
         game = Game.find_by(id: params[:game_id])
         game.bets_placed = game.bets_placed + 1
         game.save
+        #byebug
 
         # if user_horse.save
         #     if game.bets_placed === game.users.length 
