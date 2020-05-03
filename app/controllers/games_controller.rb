@@ -15,13 +15,13 @@ class GamesController < ApplicationController
         game = Game.new(game_params)
         
         if game.save
-            h1 = Horse.create(speed: 10)
+            h1 = Horse.create(name: 'Alfie', speed: 10)
             GameHorse.create(game_id: game.id, horse_id: h1.id)
-            h2 = Horse.create(speed: 10)
+            h2 = Horse.create(name: 'Seabiscuit', speed: 10)
             GameHorse.create(game_id: game.id, horse_id: h2.id)
-            h3 = Horse.create(speed: 10)
+            h3 = Horse.create(name: 'Flash', speed: 10)
             GameHorse.create(game_id: game.id, horse_id: h3.id)
-            h4 = Horse.create(speed: 10)
+            h4 = Horse.create(name: 'Lucky', speed: 10)
             GameHorse.create(game_id: game.id, horse_id: h4.id)
             serialized_data = ActiveModelSerializers::Adapter::Json.new(
               GameSerializer.new(game)
