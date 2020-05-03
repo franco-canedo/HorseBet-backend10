@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   post '/joinGame', to: 'game_users#join'
   post '/userHorse', to: 'user_horses#create'
   post '/hype', to: 'hypes#create'
+  post '/winner', to: 'game_winners#winner'
   
 
   # Serve websocket cable requests in-process

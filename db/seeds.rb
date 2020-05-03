@@ -12,6 +12,8 @@ Game.destroy_all
 Horse.destroy_all
 UserHorse.destroy_all
 Boo.destroy_all
+Hype.destroy_all
+GameWinner.destroy_all
 
 dane = User.create(username: "Dane", password: "dane1", winnings: 20, deposit: 50)
 jason = User.create(username: "Jason", password: "jason1")

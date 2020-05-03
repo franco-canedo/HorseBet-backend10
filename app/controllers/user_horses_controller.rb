@@ -44,7 +44,7 @@ class UserHorsesController < ApplicationController
           head :ok
         #   byebug
         end 
-        render json: user_horse
+       
     end 
 
     private
