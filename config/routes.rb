@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       get '/users', to: 'users#index'
       post '/users/deposit', to: 'users#deposit'
       post '/users/withdraw', to: 'users#withdraw'
+      patch 'users/edit', to: 'users#edit'
+      get 'users/leaderboard', to: 'users#leaderboard'
     end
   end
 
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
   post '/joinGame', to: 'game_users#join'
   post '/userHorse', to: 'user_horses#create'
   post '/hype', to: 'hypes#create'
+  post '/winner', to: 'game_winners#winner'
   
 
   # Serve websocket cable requests in-process
