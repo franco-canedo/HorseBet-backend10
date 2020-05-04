@@ -1,8 +1,8 @@
 class CreateGames < ActiveRecord::Migration[6.0]
   def change
     create_table :games do |t|
-      t.float :jackpot
-      t.integer :minimum_bet
+      t.float :jackpot, :default => 0
+      t.integer :minimum_bet, :default => 0
       t.string :winner
       t.integer :bets_placed, :default => 0
       t.boolean :active, :default => false

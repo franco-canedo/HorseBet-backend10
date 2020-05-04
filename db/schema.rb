@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 2020_04_28_221228) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.float "jackpot"
-    t.integer "minimum_bet"
+    t.float "jackpot", default: 0.0
+    t.integer "minimum_bet", default: 0
     t.string "winner"
     t.integer "bets_placed", default: 0
     t.boolean "active", default: false
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_221228) do
     t.string "password_digest"
     t.string "bio"
     t.string "avatar"
-    t.integer "winnings", default: 0
+    t.float "winnings", default: 0.0
     t.float "deposit", default: 0.0
     t.integer "number_wins", default: 0
     t.datetime "created_at", precision: 6, null: false

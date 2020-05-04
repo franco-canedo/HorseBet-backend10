@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create, :index, :show, :deposit, :withdraw]
+    skip_before_action :authorized, only: [:create, :index, :show, :deposit, :withdraw, :edit]
 
   def index
     users = User.all 
@@ -14,6 +14,13 @@ class Api::V1::UsersController < ApplicationController
   def profile
     render json: { user: UserSerializer.new(current_user) }, status: :accepted
   end
+
+  def edit
+    user = User.find(params[:id])
+    user.username = params[:username]
+    user.save
+    render json: user
+  end 
  
   def create
     @user = User.create(user_params)

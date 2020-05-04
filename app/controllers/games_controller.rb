@@ -3,7 +3,8 @@ class GamesController < ApplicationController
 
     def index
         games = Game.all 
-        render json: games.to_json(:include => [:users, :horses, {:game_winners => {:include => :user}}])
+        reverse_games = games.reverse
+        render json: reverse_games.to_json(:include => [:users, :horses, {:game_winners => {:include => :user}}])
     end 
 
     def show 
@@ -47,6 +48,6 @@ class GamesController < ApplicationController
     private
   
     def game_params
-        params.require(:game).permit(:minimum_bet, :jackpot)
+        params.require(:game).permit(:minimum_bet)
     end
 end

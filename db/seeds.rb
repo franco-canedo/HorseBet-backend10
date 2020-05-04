@@ -15,19 +15,14 @@ Boo.destroy_all
 Hype.destroy_all
 GameWinner.destroy_all
 
-dane = User.create(username: "Dane", password: "dane1", winnings: 20, deposit: 50)
+dane = User.create(username: "Dane", password: "dane1", deposit: 50)
 jason = User.create(username: "Jason", password: "jason1")
-jack = User.create(username: "Jack", password: "jack1", winnings: 15, deposit: 60)
+jack = User.create(username: "Jack", password: "jack1", deposit: 60)
 
-g1 = Game.create(jackpot: 4, minimum_bet: 1, joinable: false, winner: "Dane123")
-Game.create(jackpot: 5.75, minimum_bet: 1, joinable: false, winner: "JohnLennon")
-Game.create(jackpot: 6.25, minimum_bet: 1, joinable: false, winner: "Brady45")
-Game.create(jackpot: 4.95, minimum_bet: 1, joinable: false, winner: "Xperson4")
 Game.create(jackpot: 4.25, minimum_bet: 1, joinable: false, winner: "Kev901")
-Game.create(jackpot: 4.25, minimum_bet: 1, joinable: false, winner: "Kev901")
-Game.create(jackpot: 4.25, minimum_bet: 1, joinable: false, winner: "Kev901")
-Game.create(jackpot: 4.25, minimum_bet: 1, joinable: false, winner: "Kev901")
-Game.create(jackpot: 4.25, minimum_bet: 1, joinable: false, winner: "Kev901")
+Game.create(jackpot: 5.60, minimum_bet: 1, joinable: false, winner: "Xperson4")
+Game.create(jackpot: 4.90, minimum_bet: 1, joinable: false, winner: "Brady45")
+Game.create(jackpot: 7.10, minimum_bet: 1, joinable: false, winner: "JohnLennon")
 # GameUser.create(game_id: g1.id, user_id: dane.id, extra_bet: 1, total_bet: 1)
 # GameUser.create(game_id: g1.id, user_id: jason.id, extra_bet: 1, total_bet: 1)
 # GameUser.create(game_id: g1.id, user_id: jack.id, extra_bet: 1, total_bet: 1)

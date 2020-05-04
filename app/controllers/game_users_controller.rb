@@ -3,6 +3,8 @@ class GameUsersController < ApplicationController
     def join
         game_user = GameUser.new(game_user_params)
         game = Game.find_by(id: game_user_params[:game_id])
+        game.jackpot += game_user_params[:total_bet]
+        game.save
         # byebug
         if game_user.save
             serialized_data = ActiveModelSerializers::Adapter::Json.new(

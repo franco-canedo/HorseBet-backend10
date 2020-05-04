@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get '/users', to: 'users#index'
       post '/users/deposit', to: 'users#deposit'
       post '/users/withdraw', to: 'users#withdraw'
+      patch 'users/edit', to: 'users#edit'
     end
   end
 
