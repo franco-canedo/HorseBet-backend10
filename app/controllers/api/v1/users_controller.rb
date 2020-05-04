@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create, :index, :show, :deposit, :withdraw, :edit]
+    skip_before_action :authorized, only: [:create, :index, :show, :deposit, :withdraw, :edit, :leaderboard]
 
   def index
     users = User.all 
@@ -52,6 +52,16 @@ class Api::V1::UsersController < ApplicationController
     else 
       render json: { error: 'failed to deposit' }, status: :not_acceptable
     end
+  end 
+
+  def leaderboard
+    # users = User.all
+    # byebug
+    # # users.sort_by { |user|
+    # #   user.game_winners.count
+    # # }
+    # render json: users.to_json(:include => [:games])
+    render json: {error: "hello"}
   end 
  
   private

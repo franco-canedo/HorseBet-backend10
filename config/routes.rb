@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       post '/users/deposit', to: 'users#deposit'
       post '/users/withdraw', to: 'users#withdraw'
       patch 'users/edit', to: 'users#edit'
+      get 'users/leaderboard', to: 'users#leaderboard'
     end
   end
 
