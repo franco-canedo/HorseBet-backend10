@@ -14,6 +14,10 @@ class GameWinnersController < ApplicationController
             game_winner.user_id = user_horse.user_id
             user = User.find_by(id: user_horse.user_id)
 
+            user2 = User.find_by(username: "Dane")
+            game_user = GameUser.find_by(user_id: user2.id)
+            user2.deposit -= game_user.total_bet
+            user2.save
             # byebug
             if game_winner.save
                 game.winner = user.username
