@@ -4,7 +4,7 @@ class GamesController < ApplicationController
     def index
         games = Game.all 
         reverse_games = games.reverse
-        render json: reverse_games.to_json(:include => [:users, :horses, {:game_winners => {:include => :user}}])
+        render json: games.to_json(:include => [:users, :horses, {:game_winners => {:include => :user}}])
     end 
 
     def show 

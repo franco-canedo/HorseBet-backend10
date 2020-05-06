@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+HorseBet is a multiplayer game where users can bet on horses. To run the Rails back end, run the following commands. the React front-end of this app can be found at 
+https://github.com/franco-canedo/HorseBet-frontend
 
-* Ruby version
+$ bundle install
 
-* System dependencies
+$ rails db:create
 
-* Configuration
+$ rails db:migrate
 
-* Database creation
+$ rails db:seed
 
-* Database initialization
+$ rails s
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The back end should be running!
